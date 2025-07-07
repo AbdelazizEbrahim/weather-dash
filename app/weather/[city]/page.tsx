@@ -108,7 +108,7 @@ export default function CityWeatherPage() {
 
   return (
     <div className="min-h-screen p-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <button
@@ -120,18 +120,29 @@ export default function CityWeatherPage() {
 
           <button
             onClick={handleToggleUnit}
-            className="flex items-center space-x-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors">
+            className="flex items-center justify-between bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors space-x-4">
+            {/* Celsius on the left */}
+            <span
+              className={`text-white font-semibold transition-opacity ${
+                unit === "celsius" ? "opacity-100" : "opacity-50"
+              }`}>
+              °C
+            </span>
+
+            {/* Toggle Icon */}
             {unit === "celsius" ? (
-              <>
-                <ToggleLeft className="w-5 h-5 text-white" />
-                <span className="text-white">°C</span>
-              </>
+              <ToggleLeft className="w-5 h-5 text-white" />
             ) : (
-              <>
-                <ToggleRight className="w-5 h-5 text-white" />
-                <span className="text-white">°F</span>
-              </>
+              <ToggleRight className="w-5 h-5 text-white" />
             )}
+
+            {/* Fahrenheit on the right */}
+            <span
+              className={`text-white font-semibold transition-opacity ${
+                unit === "fahrenheit" ? "opacity-100" : "opacity-50"
+              }`}>
+              °F
+            </span>
           </button>
         </div>
 
